@@ -1,0 +1,45 @@
+# Fusion model configuration (for future extension with pose + video)
+
+data:
+  json_path: "dataset/WLASL_v0.3.json"
+  video_dir: "dataset/videos"
+  class_list: "dataset/wlasl_class_list.txt"
+  train_split: "train"
+  val_split: "test"
+  use_pose: false  # Set to true when pose extraction is implemented
+  pose_cache_dir: "dataset/poses"
+
+model:
+  num_frames: 16
+  frame_size: [224, 224]
+  embed_dim: 128
+  num_heads: 4
+  num_layers: 3
+  ff_dim: 256
+  dropout: 0.1
+  use_positional_encoding: true
+  fusion_type: "gated"  # "gated" or "cross_attention"
+  small_model: false
+
+training:
+  batch_size: 4
+  learning_rate: 0.0001
+  epochs: 50
+  optimizer: "adamw"
+  mixed_precision: false
+  
+callbacks:
+  early_stopping_patience: 10
+  reduce_lr_patience: 5
+  monitor: "val_accuracy"
+
+paths:
+  checkpoint_dir: "checkpoints"
+  model_dir: "models"
+  logs_dir: "logs"
+
+efficiency:
+  subset_size: null
+  max_videos_per_class: null
+  cache_dataset: false
+

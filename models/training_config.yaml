@@ -1,0 +1,36 @@
+callbacks:
+  early_stopping_patience: 10
+  monitor: val_accuracy
+  reduce_lr_patience: 5
+data:
+  class_list: dataset/wlasl_class_list.txt
+  json_path: dataset/WLASL_v0.3.json
+  train_split: train
+  val_split: test
+  video_dir: dataset/videos
+efficiency:
+  cache_dataset: false
+  max_videos_per_class: null
+  subset_size: null
+model:
+  dropout: 0.1
+  embed_dim: 128
+  ff_dim: 256
+  frame_size:
+  - 224
+  - 224
+  num_frames: 16
+  num_heads: 4
+  num_layers: 2
+  small_model: false
+  use_positional_encoding: true
+paths:
+  checkpoint_dir: checkpoints
+  logs_dir: logs
+  model_dir: models
+training:
+  batch_size: 4
+  epochs: 50
+  learning_rate: 0.0001
+  mixed_precision: false
+  optimizer: adamw

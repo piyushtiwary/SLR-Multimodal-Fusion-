@@ -1,0 +1,47 @@
+# Small model configuration for low-end PCs (8 GB RAM)
+
+data:
+  json_path: "dataset/WLASL_v0.3.json"
+  video_dir: "dataset/videos"
+  class_list: "dataset/wlasl_class_list.txt"
+  train_split: "train"
+  val_split: "test"
+
+model:
+  num_frames: 16
+  frame_size: [224, 224]
+  embed_dim: 128
+  num_heads: 4
+  num_layers: 2  # depth = 2
+  ff_dim: 256  # mlp_dim = 256
+  dropout: 0.1
+  use_positional_encoding: true
+  input_type: "video"  # "video", "pose", or "features"
+  small_model: false
+
+training:
+  batch_size: 4
+  learning_rate: 0.0001
+  epochs: 50
+  optimizer: "adamw"
+  mixed_precision: false
+  
+callbacks:
+  early_stopping_patience: 10
+  reduce_lr_patience: 5
+  monitor: "val_accuracy"
+
+paths:
+  checkpoint_dir: "checkpoints"
+  model_dir: "models"
+  logs_dir: "logs"
+
+efficiency:
+  subset_size: null  # Set to integer to limit total videos for debugging
+  max_videos_per_class: null  # Set to integer to limit videos per class
+  cache_dataset: false  # Set to true to cache dataset to disk (uses more disk but less RAM)
+  use_pre_extracted: false  # Set to true to use pre-extracted features/poses
+  feature_dir: "dataset/features"  # Directory with pre-extracted features
+  pose_dir: "dataset/poses"  # Directory with pre-extracted pose keypoints
+  use_pose: false  # Set to true to use pose keypoints instead of video/features
+

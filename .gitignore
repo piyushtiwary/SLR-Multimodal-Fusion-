@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model files
+*.h5
+*.hdf5
+*.ckpt
+*.pb
+*.tflite
+
+# Checkpoints and models
+checkpoints/
+models/*.h5
+models/*.hdf5
+!models/.gitkeep
+
+# Logs
+logs/
+*.log
+tensorboard/
+
+# Dataset (large files)
+dataset
+dataset/videos/*.mp4
+dataset/poses/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Config overrides
+config_local.yaml
+
