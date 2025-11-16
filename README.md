@@ -1,6 +1,6 @@
 # Transformer-Based Sign Language Recognition (WLASL)
 
-A lightweight, efficient Transformer-based Sign Language Recognition system using the WLASL dataset. Designed to run on low-end PCs with 8 GB RAM.
+A lightweight, efficient Transformer-based Sign Language Recognition system using the WLASL dataset.
 
 ## Features
 
